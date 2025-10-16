@@ -1,6 +1,6 @@
 # Full_Adder
 
-This project is a basic implementation of a Half Adder using the Verilog Hardware Description Language (HDL). It demonstrates a complete digital design flow, including RTL coding, verification via simulation, synthesis, and timing analysis using Intel Quartus Prime.
+This project is a basic implementation of a Full Adder using the Verilog Hardware Description Language (HDL). It demonstrates a complete digital design flow, including RTL coding, verification via simulation, synthesis, and timing analysis using Intel Quartus Prime.
 
 This project aims to understand the basic principles of combinational logic design and the digital design flow using Verilog HDL and Intel Quartus Prime tools.
 
@@ -8,7 +8,7 @@ This project aims to understand the basic principles of combinational logic desi
 
 1. Specification
 
-Objective: To design a half adder circuit with two 1-bit inputs (A, B) and two 1-bit outputs (SUM, CARRY).
+Objective: To design a half adder circuit with three 1-bit inputs (A, B, CIN) and two 1-bit outputs (SUM, COUT).
 
 Truth Table:
 
@@ -24,7 +24,7 @@ Circuit diagram:
 
 2. Behavioral Description
 
-Behavioral RTL description of Half Adder written in Verilog.
+Behavioral RTL description of Full Adder written in Verilog.
 
 
 ![Behavioral Model](https://github.com/trungpham141205/Full_Adder/blob/main/images/full_adder.png)
@@ -58,9 +58,9 @@ Tool: Intel Quartus Prime
 
 Objective: Synthesize Verilog into a netlist (logic gate circuit).
 
-After successful synthesis, the RTL Viewer shows the gate-level structure of the Half Adder circuit.
+After successful synthesis, the RTL Viewer shows the gate-level structure of the Full Adder circuit.
 
-The RTL Viewer confirms that the synthesized design consists of one XOR gate and one AND gate, corresponding to the Half Adder logic.
+The RTL Viewer confirms that the synthesized design consists of two XOR gate, two AND gate and 1 OR gate, corresponding to the Full Adder logic.
 
 ![RTL Viewer](https://github.com/trungpham141205/Full_Adder/blob/main/images/RTL_viewer.png)
 
@@ -86,6 +86,6 @@ Datasheet Report
 
 7. Conclusion
 
-The Half Adder was successfully designed, simulated, and synthesized.  
+The Full Adder was successfully designed, simulated, and synthesized.  
 
 The project demonstrates a complete digital design flow from RTL coding to timing analysis.
