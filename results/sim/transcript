@@ -1,41 +1,51 @@
 # Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-# Start time: 13:41:59 on Oct 16,2025
+# Start time: 15:49:22 on Oct 20,2025
 # vlog -reportprogress 300 ../../src/full_adder.v 
 # -- Compiling module full_adder
 # 
 # Top level modules:
 # 	full_adder
-# End time: 13:41:59 on Oct 16,2025, Elapsed time: 0:00:00
+# End time: 15:49:22 on Oct 20,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-# Start time: 13:41:59 on Oct 16,2025
+# Start time: 15:49:22 on Oct 20,2025
 # vlog -reportprogress 300 ../../sim/full_adder_tb.v 
 # -- Compiling module full_adder_tb
 # 
 # Top level modules:
 # 	full_adder_tb
-# End time: 13:41:59 on Oct 16,2025, Elapsed time: 0:00:00
+# End time: 15:49:22 on Oct 20,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs=""+acc"" work.full_adder_tb 
-# Start time: 13:41:59 on Oct 16,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Start time: 15:49:23 on Oct 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
 # Loading work.full_adder_tb(fast)
 # Loading work.full_adder(fast)
-# Time | a b cin | sum cout
-#    0 | 0 0 0 | 0 0
-# 10000 | 0 0 1 | 1 0
-# 20000 | 0 1 0 | 1 0
-# 30000 | 0 1 1 | 0 1
-# 40000 | 1 0 0 | 1 0
-# 50000 | 1 0 1 | 0 1
-# 60000 | 1 1 0 | 0 1
-# 70000 | 1 1 1 | 1 1
-# ** Note: $finish    : ../../sim/full_adder_tb.v(32)
-#    Time: 80 ns  Iteration: 0  Instance: /full_adder_tb
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: PC  Hostname: TRUNGPHAM  ProcessID: 13752
+#           Attempting to use alternate WLF file "./wlftaqm8q0".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftaqm8q0
+# Time | A B CIN | COUT SUM | EXPECTED | RESULT
+# 3000 | 0 0 0 | 0 0 | 00 | PASS
+# 11000 | 0 0 1 | 0 1 | 01 | PASS
+# 19000 | 0 1 0 | 0 1 | 01 | PASS
+# 27000 | 0 1 1 | 1 0 | 10 | PASS
+# 35000 | 1 0 0 | 0 1 | 01 | PASS
+# 43000 | 1 0 1 | 1 0 | 10 | PASS
+# 51000 | 1 1 0 | 1 0 | 10 | PASS
+# 59000 | 1 1 1 | 1 1 | 11 | PASS
+# ----------------------------------------------------------
+# Total tests: 8 | Passed: 8 | Failed: 0
+# ----------------------------------------------------------
+# ALL TESTS PASSED SUCCESSFULLY!
+# ** Note: $finish    : ../../sim/full_adder_tb.v(50)
+#    Time: 64 ns  Iteration: 0  Instance: /full_adder_tb
 # 1
-# Break in Module full_adder_tb at ../../sim/full_adder_tb.v line 32
+# Break in Module full_adder_tb at ../../sim/full_adder_tb.v line 50
 # 0 ps
-# 84 ns
-exit
-# End time: 13:43:35 on Oct 16,2025, Elapsed time: 0:01:36
-# Errors: 0, Warnings: 0
+# 67200 ps
+# End time: 15:49:42 on Oct 20,2025, Elapsed time: 0:00:19
+# Errors: 0, Warnings: 3

@@ -1,8 +1,20 @@
 m255
 K4
 z2
-!s12c _opt
+!s12c _opt1
 Z0 !s99 nomlopt
+Z1 !s12c _opt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
 !s11f vlog 2024.3 2024.09, Sep 10 2024
 13
 !s112 1.1
@@ -10,65 +22,79 @@ Z0 !s99 nomlopt
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 dD:/Project/Full_Adder/results/sim
+Z2 dD:/Project/Full_Adder/results/sim
 T_opt
-!s110 1760596833
-VOc@eN=zki6D7ZoaGAMPk40
-04 13 4 work full_adder_tb fast 0
-=1-14ac606edb59-68f09360-39a-5c14
+!s110 1760949915
+VG1l@DE6F[nYna5o<Kkc`L0
+Z3 04 13 4 work full_adder_tb fast 0
+=1-14ac606edb59-68f5f69a-361-35b8
 R0
-!s12f OEM100
-!s12b OEM100
-!s124 OEM10U2 
-!s135 nogc
-o-quiet -auto_acc_if_foreign -work work +acc
-Z2 tCvgOpt 0
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM10U2 
+Z7 !s135 nogc
+Z8 o-quiet -auto_acc_if_foreign -work work +acc
+Z9 tCvgOpt 0
 n@_opt
-OL;O;2024.3;79
-R1
+Z10 OL;O;2024.3;79
+R2
+T_opt1
+!s110 1760950163
+VD^CJ[7h=m@Hg38ZQA8R[D2
+R3
+=1-14ac606edb59-68f5f793-1f8-53a0
+R0
+R4
+R5
+R6
+R7
+R8
+R9
+n@_opt1
+R10
 vfull_adder
 2../../src/full_adder.v
-Z3 !s110 1760596919
+Z11 !s110 1760950162
 !i10b 1
 !s100 beZa:W@MhERVAmYTm^kTN2
 ILYYKkH2c>beO;8Z[bR6zB3
-R1
+R2
 w1760595368
 8../../src/full_adder.v
 F../../src/full_adder.v
-!i122 2
+!i122 18
 L0 7 12
-Z4 VDg1SIo80bB@j0V0VzS_@n1
-Z5 OL;L;2024.3;79
+Z12 VDg1SIo80bB@j0V0VzS_@n1
+Z13 OL;L;2024.3;79
 r1
 !s85 0
 31
-Z6 !s108 1760596919.000000
+Z14 !s108 1760950162.000000
 !s107 ../../src/full_adder.v|
 !s90 -reportprogress|300|../../src/full_adder.v|
 !i113 0
-Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R2
+Z15 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
 vfull_adder_tb
 2../../sim/full_adder_tb.v
-R3
+R11
 !i10b 1
-!s100 X1EIMBzo01^V>25l>VFX`1
-IGzbl?ZZY>U;JPg2N@mRgh1
-R1
-w1760596668
+!s100 2X9LJ;XMS@1coofPBEj^<2
+IW9HhX7WQReeK4LM^iR:Y>3
+R2
+w1760950154
 8../../sim/full_adder_tb.v
 F../../sim/full_adder_tb.v
-!i122 3
-L0 3 33
-R4
-R5
+!i122 19
+L0 3 51
+R12
+R13
 r1
 !s85 0
 31
-R6
+R14
 !s107 ../../sim/full_adder_tb.v|
 !s90 -reportprogress|300|../../sim/full_adder_tb.v|
 !i113 0
-R7
-R2
+R15
+R9
