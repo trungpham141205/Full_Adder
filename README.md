@@ -1,91 +1,105 @@
-# Full_Adder
+# Full Adder RTL Design
 
-This project is a basic implementation of a Full Adder using the Verilog Hardware Description Language (HDL). It demonstrates a complete digital design flow, including RTL coding, verification via simulation, synthesis, and timing analysis using Intel Quartus Prime.
+A 1-bit full adder implemented in synthesizable Verilog and exercised through all eight input combinations. The repository also contains Quartus synthesis, timing and implementation artifacts.
 
-This project aims to understand the basic principles of combinational logic design and the digital design flow using Verilog HDL and Intel Quartus Prime tools.
+## Design status
 
+| Item | Status |
+|---|---|
+| RTL | Implemented |
+| Exhaustive self-checking testbench | Implemented (8/8 combinations) |
+| Quartus project/reports | Included |
+| Timing constraints | Included |
 
+## Specification
 
-1. Specification
+| Property | Value |
+|---|---|
+| Design type | Combinational arithmetic |
+| Function | `{cout, sum} = a + b + cin` |
+| Latency | Combinational; no clock cycles |
+| Top module | `full_adder` |
 
-Objective: To design a half adder circuit with three 1-bit inputs (A, B, CIN) and two 1-bit outputs (SUM, COUT).
+### Interface
 
-Truth Table:
+| Port | Direction | Width | Description |
+|---|---|---:|---|
+| `a` | Input | 1 | First operand bit |
+| `b` | Input | 1 | Second operand bit |
+| `cin` | Input | 1 | Carry input |
+| `sum` | Output | 1 | Sum bit |
+| `cout` | Output | 1 | Carry output |
 
+### Logic equations
 
-![Truth Table](https://github.com/trungpham141205/Full_Adder/blob/main/images/Truth-table-of-a-Full-Adder.png)
+```text
+sum  = a XOR b XOR cin
+cout = (a AND b) OR ((a XOR b) AND cin)
+```
 
-Circuit diagram:
+![Full-adder truth table](images/Truth-table-of-a-Full-Adder.png)
 
+![Full-adder circuit](images/circuit_diagram.png)
 
-![Circuit Diagram](https://github.com/trungpham141205/Full_Adder/blob/main/images/circuit_diagram.png)
+## RTL implementation
 
+The DUT uses two continuous assignments and has no clock, reset, storage element or inferred state.
 
+![RTL source](images/full_adder.png)
 
-2. Behavioral Description
+## Repository structure
 
-Behavioral RTL description of Full Adder written in Verilog.
+```text
+.
+├── src/full_adder.v
+├── sim/
+│   ├── full_adder_tb.v
+│   └── run.tcl
+├── constraints/full_adder.sdc
+├── quartus_project/
+├── results/sim/
+└── images/
+```
 
+## Verification
 
-![Behavioral Model](https://github.com/trungpham141205/Full_Adder/blob/main/images/full_adder.png)
+The testbench iterates over `a`, `b` and `cin`, computes the two-bit reference value with `a + b + cin`, and compares it against `{cout, sum}`. All `2 x 2 x 2 = 8` legal binary combinations are covered.
 
+Expected summary:
 
+```text
+Total tests: 8 | Passed: 8 | Failed: 0
+ALL TESTS PASSED SUCCESSFULLY!
+```
 
-3. Verification
+![Self-checking testbench](images/full_adder_tb.png)
 
-The design is verified through a Verilog testbench and simulated using QuestaSim.
+![Simulation console](images/stimulate.png)
 
-![Simulation Result](https://github.com/trungpham141205/Full_Adder/blob/main/images/full_adder_tb.png)
+![Waveform](images/wave.png)
 
-![Simulation Result](https://github.com/trungpham141205/Full_Adder/blob/main/images/stimulate.png)
+### Run with Questa/ModelSim
 
+```bash
+vsim -do sim/run.tcl
+```
 
+Or:
 
-4. Simulation & Debug
+```tcl
+vlib work
+vlog src/full_adder.v sim/full_adder_tb.v
+vsim -c work.full_adder_tb -do "run -all; quit -f"
+```
 
-Tool: QuestaSim
+## Synthesis and timing
 
-Waveform Simulation
+The Quartus RTL view should contain the equivalent XOR/AND/OR network.
 
+![Quartus RTL Viewer](images/RTL_viewer.png)
 
-![Waveform Simulation](https://github.com/trungpham141205/Full_Adder/blob/main/images/wave.png) 
+![Fmax report](images/fmax_report.png)
 
+![Datasheet report](images/datasheet_report.png)
 
-
-5. Synthesis
-
-Tool: Intel Quartus Prime
-
-Objective: Synthesize Verilog into a netlist (logic gate circuit).
-
-After successful synthesis, the RTL Viewer shows the gate-level structure of the Full Adder circuit.
-
-The RTL Viewer confirms that the synthesized design consists of two XOR gate, two AND gate and 1 OR gate, corresponding to the Full Adder logic.
-
-![RTL Viewer](https://github.com/trungpham141205/Full_Adder/blob/main/images/RTL_viewer.png)
-
-
-
-6. Static Timing Analysis
-
-Tool: Intel Quartus Prime
-
-Timing and resource utilization are analyzed post-synthesis using Quartus STA tool.
-
-The design meets all timing requirements with positive slack, indicating successful synthesis and implementation.
-
-Check Fmax Summary
-
-![Fmax Report](https://github.com/trungpham141205/Full_Adder/blob/main/images/fmax_report.png)
-
-Datasheet Report
-
-![Datasheet](https://github.com/trungpham141205/Full_Adder/blob/main/images/datasheet_report.png)
-
-
-
-7. Conclusion
-
-The Full Adder was successfully designed, simulated, and synthesized.  
-
-The project demonstrates a complete digital design flow from RTL coding to timing analysis.
+Timing values are specific to the selected device, constraints and analysis corner. For ASIC reuse, rerun lint, synthesis and STA with the target standard-cell library.
