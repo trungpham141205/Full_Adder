@@ -1,19 +1,21 @@
 <div align="center">
-  <h1>➕ Full Adder RTL Design</h1>
+  <h1>Full Adder RTL Design</h1>
   <p><strong>A complete 1-bit arithmetic cell from truth table to FPGA reports</strong></p>
   <p>
-    <img src="https://img.shields.io/badge/HDL-Verilog-2563EB?style=for-the-badge" alt="Verilog" />
-    <img src="https://img.shields.io/badge/Design-Combinational-8B5CF6?style=for-the-badge" alt="Combinational design" />
-    <img src="https://img.shields.io/badge/Verification-Exhaustive%208%2F8-22C55E?style=for-the-badge" alt="Exhaustive 8 of 8 verification" />
-    <img src="https://img.shields.io/badge/Flow-Intel%20Quartus-0EA5E9?style=for-the-badge" alt="Intel Quartus" />
+    <img src="https://img.shields.io/badge/HDL-Verilog-2563EB?style=flat-square" alt="Verilog" />
+    <img src="https://img.shields.io/badge/Design-Combinational-8B5CF6?style=flat-square" alt="Combinational design" />
+    <img src="https://img.shields.io/badge/Verification-Exhaustive%208%2F8-22C55E?style=flat-square" alt="Exhaustive 8 of 8 verification" />
+    <img src="https://img.shields.io/badge/Flow-Intel%20Quartus-0EA5E9?style=flat-square" alt="Intel Quartus" />
   </p>
 </div>
 
 ---
 
+## Overview
+
 A 1-bit full adder implemented in synthesizable Verilog and exercised through all eight input combinations. The repository also contains Quartus synthesis, timing and implementation artifacts.
 
-## Design status
+## Project snapshot
 
 | Item | Status |
 |---|---|
